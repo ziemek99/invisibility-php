@@ -2,8 +2,8 @@
 session_start();
 error_reporting(0);
 
-require 'config.php';
-require 'totp.php';
+require_once 'config.php';
+require_once 'totp.php';
 
 // Register correct TOTP's entering time and reload the script.
 if (getOTP($otp_secret) == $_GET['otp'])
