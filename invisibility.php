@@ -1,6 +1,11 @@
 <?php
 require 'config.php';
 
+if (!isset($_SESSION))
+{
+	session_start();
+}
+
 // Security against Session Fixation.
 if (!isset($_SESSION['init']))
 {
