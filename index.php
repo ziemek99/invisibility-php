@@ -6,7 +6,7 @@ require_once 'config.php';
 require_once 'totp.php';
 
 // Register correct TOTP's entering time and reload the script.
-if (getOTP($otp_secret) == $_GET['otp'])
+if (isset($_GET['otp']) && getOTP($otp_secret) == $_GET['otp'])
 {
 	$_SESSION['totp-main'] = time();
 	// TODO: $_SESSION['trials-left'] = 2;
@@ -35,7 +35,7 @@ catch(PDOException $e)
 }
 
 // Destroy session on request.
-if ($_GET['destroy'] == 'yes')
+if (isset($_GET['destroy']) && $_GET['destroy'] == 'yes')
 {
 	$_SESSION['totp-main'] = '';
 	unset($_SESSION['totp-main']);

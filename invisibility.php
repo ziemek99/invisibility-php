@@ -14,7 +14,7 @@ if (!isset($_SESSION['init']))
 }
 
 if (
-	$_SESSION['totp-main'] != -1 && // If user doesn't have trusted IP and:
+	(isset($_SESSION['totp-main']) && $_SESSION['totp-main'] != -1) && // If user doesn't have trusted IP and:
 	(!isset($_SESSION['totp-main']) || // entered the page without or with wrong access token...
 	(time() - $_SESSION['totp-main'] > $time_max)) // ...or time's up...
 )
