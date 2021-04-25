@@ -34,4 +34,14 @@ catch(PDOException $e)
 	die;
 }
 
+// Destroy session on request.
+if ($_GET['destroy'] == 'yes')
+{
+	$_SESSION['totp-main'] = '';
+	unset($_SESSION['totp-main']);
+
+	header('Location: .');
+	die;
+}
+
 require 'invisibility.php';
