@@ -1,6 +1,9 @@
 # invisibility-php
 Hide your website in plain sight by making it accessible only after entering a secret token, returning error 404 otherwise.
 
+## WARNING
+**PROJECT IS NOT READY AT ALL. CURRENT CODE ONLY DRAWS THE IDEA OF THE DESIRED RESULT.**
+
 ## How to use
 Edit `config.php` to match your server's behavior and personal preferences, then just prepend every text file you want to protect with:
 ```php
