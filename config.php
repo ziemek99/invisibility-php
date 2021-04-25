@@ -2,6 +2,12 @@
 /* GENERAL VARIABLES */
 $time_max = 60; // User authentication time in seconds; after that user gets deauthenticated.
 
+/* CRUCIAL SECURITY VARIABLES */
+$otp_secret = 'yqghswhsafebp5kzxlo3w5z2xncc7sbi74imy7pnav2yrsdb6xol3flh5lwkm6pm';
+$db_host = 'mysql:host=localhost;dbname=Database';
+$db_user = 'username';
+$db_pass = 'password';
+
 /* FAKE HTTP 404 */
 function emit_404()
 {
