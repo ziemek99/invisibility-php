@@ -13,6 +13,17 @@ if (isset($_GET['otp']) && getOTP($otp_secret) == $_GET['otp'])
 	header('Location: .');
 	die;
 }
+
+// Destroy session on request.
+if (isset($_GET['destroy']) && $_GET['destroy'] == 'yes')
+{
+	$_SESSION['totp-main'] = '';
+	unset($_SESSION['totp-main']);
+
+	header('Location: .');
+	die;
+}
+
 // Check whether user's IP address is trusted.
 try
 {
@@ -30,18 +41,7 @@ try
 }
 catch(PDOException $e)
 {
-	emit_404();
-	die;
-}
-
-// Destroy session on request.
-if (isset($_GET['destroy']) && $_GET['destroy'] == 'yes')
-{
-	$_SESSION['totp-main'] = '';
-	unset($_SESSION['totp-main']);
-
-	header('Location: .');
-	die;
+	// Silent fail. Guess we'll live without trusted IP database then...
 }
 
 require 'invisibility.php';
